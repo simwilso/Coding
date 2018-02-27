@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Quote Generator</title>
+
+<!-- CSS Files -->
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+
+<!-- html page -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>Random Quote Machine</h1>
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 col-md-offset-4">
+      <div class="quote-box">
+        <p id="quote"></p>
+        <p id="author"></p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+      <button class="col-md-6"><a href="#" class="btn btn-default btn-lg get-quote"><i class="fa fa-quote-left fa-fw"></i>Get Quote</a></button>
+      <button class="col-md-6"><a href="#" class="btn btn-default btn-lg share-quote"><i class="fa fa-twitter fa-fw"></i>Share</a></button>
+  </div>
+</div>
+
+<!-- Jquery reference -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>

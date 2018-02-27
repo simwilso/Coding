@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Weather App</title>
+    <!-- CSS Files -->
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- html page -->
+    <div class="container">
+        <!-- first row for heading -->
+        <div class="row">
+          <div id="title" class="col-md-12">
+            <h1>Weather App</h1>
+          </div>
+          <hr>
+        </div>
+        <!-- line for your area -->
+        <div class="row">
+          <div id="location" class="col-md-12">
+            <h3></h3>
+          </div>
+        </div>
+        <!-- line for the temp in the area -->
+        <div class="row">
+          <div id="temp" class="col-md-6">
+            <p></p>
+          </div>
+          <div id="button" class="col-md-6">
+            <form>
+              <input id="button1" type="radio" name="tempType" value="celsius"> Celsius<br>
+              <input id="button2" type="radio" name="tempType" value="farenheit"> Farenheit<br>
+            </form>
+          </div>
+        </div>
+        <!-- line for the outlook sunny etc in the area -->
+        <div class="row">
+          <div id="picture" class="col-md-12">
+            <p></p>
+          </div>
+        </div>
+    </div>
+
+    <!-- Jquery reference -->
+        <script
+          src="https://code.jquery.com/jquery-3.3.1.min.js"
+          integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+          crossorigin="anonymous">
+        </script>
+        <script src="main.js"></script>
+  </body>
+</html>

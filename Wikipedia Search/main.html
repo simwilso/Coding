@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Wikipedia App</title>
+    <!-- CSS Files -->
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+  </head>
+  <body>
+<div class="container">
+<!-- title lines 2 lines for title and name -->
+  <div class="row">
+    <div id="title" class="col-md-12">
+    <h1>Wikipedia App</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div id="by" class="col-md-12">
+    <h3>By Simon Wilson</h3>
+    </div>
+  </div>
+  <hr>
+<!-- input bar for search -->
+  <div class="row">
+    <form class="col-md-8">
+      <textarea id="searchInput" rows="1" cols="90">
+
+      </textarea>
+      <br>
+    </form>
+<!-- search button -->
+    <button class="btn btn-default col-md-2" id="searchButton">
+      Search
+    </button>
+<!-- get a random article button and take to external link -->
+    <button class="btn btn-default col-md-2" id="randomButton">
+      Get Random Article
+    </button>
+  </div>
+<!-- section for search results -->
+  <hr>
+  <div class="row">
+    <p id="results1" class= "col-md-8"></p>
+    <button id="btn1" class="col-md-4 btn btn-default">select</button>
+  </div>
+  <div class="row">
+    <p id="results2" class= "col-md-8"></p>
+    <button id="btn2" class="col-md-4 btn btn-default">select</button>
+  </div>
+  <div class="row">
+    <p id="results3" class= "col-md-8"></p>
+    <button id="btn3" class="col-md-4 btn btn-default">select</button>
+  </div>
+  <div class="row">
+    <p id="results4" class= "col-md-8"></p>
+    <button id="btn4" class="col-md-4 btn btn-default">select</button>
+  </div>
+  <div class="row">
+    <p id="results5" class= "col-md-8"></p>
+    <button id="btn5" class="col-md-4 btn btn-default">select</button>
+  </div>
+<!-- drop down for auto complete of search -->
+</div>
+<!-- Jquery reference -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+    <script src="main.js"></script>
+  </body>
+</html>
