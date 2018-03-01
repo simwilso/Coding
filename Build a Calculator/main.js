@@ -1,8 +1,8 @@
-//$(document).ready(function() {
+$(document).ready(function() {
 //javascript
 
 $(".AC").on("click", function() {
-  $("#screen").html("AC");
+  console.log("search button pushed");
 }
 $(".CE").on("click", function() {}
 $(".Divide").on("click", function() {}
