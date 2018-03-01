@@ -1,9 +1,5 @@
 $(document).ready(function() {
 //javascript
-var first = 0;
-var second = 0
-var total = first * second;
-
 
 $(".AC").on("click", function() {
   console.log("AC button pushed");
@@ -24,13 +20,11 @@ $(".Multiply").on("click", function() {
 
 $(".Seven").on("click", function() {
   console.log("Seven button pushed");
-  first = 7;
-  $("#screen").html(total);
+  $("#screen").html("Seven");
 })
 $(".Eight").on("click", function() {
   console.log("Eight button pushed");
-  second = 8;
-  $("#screen").html(total);
+  $("#screen").html("Eight");
 })
 $(".Nine").on("click", function() {
   console.log("Nine button pushed");
