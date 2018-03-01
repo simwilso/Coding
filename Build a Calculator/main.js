@@ -1,4 +1,4 @@
-$(document).ready(function() {
+//$(document).ready(function() {
 //javascript
 
 $(".AC").on("click", function() {
