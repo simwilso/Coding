@@ -1,80 +1,64 @@
 $(document).ready(function() {
+
 //javascript
 
-$(".AC").on("click", function() {
-  console.log("AC button pushed");
-  $("#screen").html("AC");
-})
-$(".CE").on("click", function() {
-  console.log("CE button pushed");
-  $("#screen").html("CE");
-})
-$(".Divide").on("click", function() {
-  console.log("Divide button pushed");
-  $("#screen").html("Divide");
-})
-$(".Multiply").on("click", function() {
-  console.log("Multiply button pushed");
-  $("#screen").html("Multiply");
-})
+//setup the global variables
+var operator = "";
+var firstArr = [];
+var secondArr = [];
+var result = 0;
 
-$(".Seven").on("click", function() {
-  console.log("Seven button pushed");
-  $("#screen").html("Seven");
-})
-$(".Eight").on("click", function() {
-  console.log("Eight button pushed");
-  $("#screen").html("Eight");
-})
-$(".Nine").on("click", function() {
-  console.log("Nine button pushed");
-  $("#screen").html("Nine");
-})
-$(".Subtract").on("click", function() {
-  console.log("Subtract button pushed");
-  $("#screen").html("Subtract");
-})
+//need to push digits entered to an array until we detect an operator at which point start logging second array
+$(":button").click(function() {
 
-$(".Four").on("click", function() {
-  console.log("Four button pushed");
-  $("#screen").html("Four");
-})
-$(".Five").on("click", function() {
-  console.log("Five button pushed");
-  $("#screen").html("Five");
-})
-$(".Six").on("click", function() {
-  console.log("Six button pushed");
-  $("#screen").html("Six");
-})
-$(".Add").on("click", function() {
-  console.log("Add button pushed");
-  $("#screen").html("Add");
-})
+  if ($(this).val() === "/") {
+    //set operator and then start capturing second if statement to capture second array
+    operator = "/";
+    firstArr.push($(this).val());
+  } else if ($(this).val() === "*") {
+    //set operator and then start capturing second if statement to capture second array
+    operator = "*";
+    firstArr.push($(this).val());
+  } else if ($(this).val() === "-") {
+    //set operator and then start capturing second if statement to capture second array
+    operator = "-";
+    firstArr.push($(this).val());
+  } else if ($(this).val() === "+") {
+    //set operator and then start capturing second if statement to capture second array
+    operator = "+";
+    firstArr.push($(this).val());
+  } else if ($(this).val() === "=") {
+    //find the operator in the array
+    //create an integer of digits before the operator
+    //create an integer of the digits after the operator
+    //do the calcs
 
-$(".One").on("click", function() {
-  console.log("One button pushed");
-  $("#screen").html("One");
-})
-$(".Two").on("click", function() {
-  console.log("Two button pushed");
-  $("#screen").html("Two");
-})
-$(".Three").on("click", function() {
-  console.log("Three button pushed");
-  $("#screen").html("Three");
-})
-$(".Equals").on("click", function() {
-  console.log("Equals button pushed");
-  $("#screen").html("Equals");
-})
+    //display the result
+    $("#screen").replaceWith(result);
 
-$(".Zero").on("click", function() {
-  console.log("Zero button pushed");
-  $("#screen").html("Zero");
-})
-$(".Period").on("click", function() {
-  console.log("Period button pushed");
-  $("#screen").html("Period");
-})
+  } else {
+    firstArr.push($(this).val());
+  }
+
+
+/*
+//then need to join the arrays and complete the function do the calculation WORKS
+var first = firstArr.join("");
+var firstInt = parseInt(first);
+var second = secondArr.join("");
+var secondInt = parseInt(second);
+
+if (operator === "/") {
+  result = firstInt / secondInt;
+} else if (operator === "*") {
+  result = firstInt * secondInt;
+} else if (operator === "-") {
+  result = firstInt - secondInt;
+} else if (operator === "+") {
+  result = firstInt + secondInt;
+}
+*/
+//console.log(firstArr);
+$("#screen").html(firstArr.join(""));
+});
 });
