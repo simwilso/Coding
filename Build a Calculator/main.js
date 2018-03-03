@@ -31,11 +31,10 @@ $(":button").click(function() {
     operator = "+";
     firstArr.push($(this).val());
   } else if ($(this).val() === "Clear") {
-    //clear the form and screen if AC or CE is pressed
-    $("#screen").replaceWith("");
+//clear the form and screen if AC or CE is pressed
+//    $("#screen").reset();
     calculator();
     return;
-
   } else if ($(this).val() === "=") {
     //find the operator in the array
     stringArr = firstArr.join("");
@@ -54,7 +53,6 @@ $(":button").click(function() {
     } else if (operator === "+") {
       result = beforeOp + afterOp;
     }
-    console.log(result);
     //display the result
     $("#screen").replaceWith(result);
   } else {
