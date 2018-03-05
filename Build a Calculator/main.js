@@ -1,63 +1,31 @@
 $(document).ready(function calculator() {
 
-//javascript
+// WORKS - javascript
 
-//setup the global variables
-var operator = "";
-var indexOfOp = "";
-var stringArr = "";
-var beforeOp = "";
-var afterOp = "";
-var firstArr = [];
+//setup my global variables
+var array = [];
+//var operatorPos = [];
+var numbers = {};
 var result = 0;
 
-//need to push digits entered to an array until we detect an operator at which point start logging second array
-$(":button").click(function() {
+// WORKS - function to push elements into an array
 
-  if ($(this).val() === "/") {
-    //set operator and then start capturing second if statement to capture second array
-    operator = "/";
-    firstArr.push($(this).val());
-  } else if ($(this).val() === "*") {
-    //set operator and then start capturing second if statement to capture second array
-    operator = "*";
-    firstArr.push($(this).val());
-  } else if ($(this).val() === "-") {
-    //set operator and then start capturing second if statement to capture second array
-    operator = "-";
-    firstArr.push($(this).val());
-  } else if ($(this).val() === "+") {
-    //set operator and then start capturing second if statement to capture second array
-    operator = "+";
-    firstArr.push($(this).val());
+$(":button").click(function capture() {
+  if ($(this).val() !== "Clear" && $(this).val() !== "=") {
+    array.push($(this).val());
+    $("#screen").html(array.join(""));
+
+// WORKS - function for the clear button
+
   } else if ($(this).val() === "Clear") {
-//clear the form and screen if AC or CE is pressed
-//    $("#screen").reset();
-    calculator();
-    return;
-  } else if ($(this).val() === "=") {
-    //find the operator in the array
-    stringArr = firstArr.join("");
-    indexOfOp = stringArr.search(/[*/+-]/);
-    //create an integer of digits before the operator
-    beforeOp = parseInt(stringArr.slice(0, indexOfOp));
-    //create an integer of the digits after the operator
-    afterOp = parseInt(stringArr.slice(indexOfOp + 1));
-    //do the calcs
-    if (operator === "/") {
-      result = beforeOp / afterOp;
-    } else if (operator === "*") {
-      result = beforeOp * afterOp;
-    } else if (operator === "-") {
-      result = beforeOp - afterOp;
-    } else if (operator === "+") {
-      result = beforeOp + afterOp;
-    }
-    //display the result
-    $("#screen").replaceWith(result);
-  } else {
-    firstArr.push($(this).val());
-  }
-$("#screen").html(firstArr.join(""));
+     array = [];
+     $("#screen").html("0");
+
+// WORKS - if equals sign hit then calculate
+
+} else {
+console.log(array);
+$("#screen").html(eval(array.join("")));
+};
 });
 });
