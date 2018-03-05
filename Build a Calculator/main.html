@@ -7,19 +7,21 @@
         <link rel="stylesheet" href="main.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
         <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'">
+        <body style="background-color:#222">
   </head>
   <body>
   <!-- html page -->
 <div class= "container">
  <div class="row">
   <!-- heading title -->
-   <div class="col-md-12">
-     <h1>Javascript Calculator</h1>
+   <div class="col-md-12 text-center">
+     <h1 class="headingfont" style="color:#fff">Simon's Javascript Calculator</h1>
      <hr>
    </div>
  </div>
   <!-- space for screen output -->
-  <div class="row">
+  <div class="row sectionodd">
     <div class="col-md-12 col-md-offset-4">
       <div class="output">
         <p id="screen">0</p>
@@ -29,8 +31,7 @@
   <!-- setup the grid for the calculator buttons -->
   <!-- first row for buttons AC / CE / Divide / Multiply -->
   <div class="row">
-    <button class="col-md-3" value="Clear"><a href="#" class="btn btn-danger btn-lg Clear"><i></i>Clear</a></button>
-    <button class="col-md-3" value="/"><a href="#" class="btn btn-default btn-lg Divide"><i></i>Divide</a></button>
+    <button class="col-md-9" value="Clear"><a href="#" class="btn btn-danger btn-lg Clear"><i></i>Clear</a></button>
     <button class="col-md-3" value="*"><a href="#" class="btn btn-default btn-lg Multiply"><i></i>Multiply</a></button>
   </div>
   <!-- second row for buttons 7 / 8 / 9 / subtract -->
@@ -52,12 +53,14 @@
     <button class="col-md-3" value="1"><a href="#" class="btn btn-default btn-lg One"><i></i>1</a></button>
     <button class="col-md-3" value="2"><a href="#" class="btn btn-default btn-lg Two"><i></i>2</a></button>
     <button class="col-md-3" value="3"><a href="#" class="btn btn-default btn-lg Three"><i></i>3</a></button>
-    <button class="col-md-3" value="="><a href="#" class="btn btn-default btn-lg Equals"><i></i>=</a></button>
+    <button class="col-md-3" value="/"><a href="#" class="btn btn-default btn-lg Divide"><i></i>Divide</a></button>
+
   </div>
   <!-- fifth row for buttons 0 / . / = -->
   <div class="row">
     <button class="col-md-3" value="0"><a href="#" class="btn btn-default btn-lg Zero"><i></i>0</a></button>
     <button class="col-md-3" value="."><a href="#" class="btn btn-default btn-lg Period"><i></i>.</a></button>
+    <button class="col-md-6" value="="><a href="#" class="btn btn-default btn-lg Equals"><i></i>=</a></button>
   </div>
 
 
