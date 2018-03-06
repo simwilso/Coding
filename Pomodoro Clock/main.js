@@ -9,13 +9,13 @@ var sessionTimer = 30;
 
 // SETUP FUNCTIONS
 
-//countup and countdown the break timer
+//WORKS - countup and countdown the break timer
   //psuedocode - if - button is pushed reduce TIME... if + is pushed increase time
 
 
 
 
-//countup and countdown the session timer
+//WORKS - countup and countdown the session timer
   //psuedocode - if - button is pushed reduce TIME... if + is pushed increase time
 
 //start the session timer countdown
@@ -25,17 +25,19 @@ var sessionTimer = 30;
 //reset the session timer countdown
   //psuedocode - if the button is pushed reset the session time to session time..restart the function.
 
+
+
 $(":button").click(function capture() {
-  if ($(this).val() === "breakMinus" && breakTime !== 0) {
+  if ($(this).val() === "breakMinus" && breakTimer !== 0) {
     breakTimer = breakTimer - 1;
-    $("#breakTime").html(breakTime);
+    $("#breakTime").html(breakTimer);
 
   } else if ($(this).val() === "breakPlus") {
      breakTimer = breakTimer + 1;
-     $("#breakTime").html(breakTime);
+     $("#breakTime").html(breakTimer);
 
-  } else if ($(this).val() === "sessionMinus" && breakTime !== 0) {
-    sessionTime = sessionTime - 1;
+  } else if ($(this).val() === "sessionMinus" && sessionTimer !== 0) {
+    sessionTimer = sessionTimer - 1;
     $("#timer").html(sessionTimer);
     $("#sessionTime").html(sessionTimer);
 
@@ -43,7 +45,17 @@ $(":button").click(function capture() {
      sessionTimer = sessionTimer + 1;
      $("#timer").html(sessionTimer);
      $("#sessionTime").html(sessionTimer);
-    }
+  } else if ($(this).val() === "start") {
+    //countdown 'sessionTimer' from current value to zero updating timer value every second
 
-};
+  } else if ($(this).val() === "reset") {
+    //reset the 'sessionTimer' to 30, reset 'timer' to 30, reset 'breakTimer' to 5
+    breakTimer = 5;
+    sessionTimer = 30;
+    $("#timer").html(sessionTimer);
+    $("#sessionTime").html(sessionTimer);
+    $("#breakTime").html(breakTimer);
+  }
+
+});
 });
