@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Pomodoro Clock</title>
+<!-- CSS Files -->
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'">
+  </head>
+  <body>
+
+<!-- html page -->
+
+<div class= "container">
+     <div class="row">
+<!-- heading title -->
+       <div class="col-md-12 text-center">
+         <h1 class="headingfont">Pomodoro Clock</h1>
+         <hr>
+       </div>
+
+<!-- break and session length sub title -->
+      <div class="row">
+        <div class="col-md-6 text-center">
+          <h3>Break</h3>
+        </div>
+        <div class="col-md-6 text-center">
+          <h3>Session Length</h3>
+        </div>
+
+<!-- time up down and session length up down line -->
+      <div class="row">
+       <div class="col-md-6 text-center">
+           <button value="breakMinus"><a href="#" class="btn btn-lg BreakMinus"><i></i>-</a></button>
+           <p id="breakTime">TIME</p>
+           <button value="breakPlus"><a href="#" class="btn btn-lg BreakPlus"><i></i>+</a></button>
+       </div>
+       <div class="col-md-6 text-center">
+           <button value="sessionMinus"><a href="#" class="btn btn-lg SessionMinus"><i></i>-</a></button>
+           <p id="sessionTime">TIME</p>
+           <button value="sessionPlus"><a href="#" class="btn btn-lg SessionPlus"><i></i>+</a></button>
+       </div>
+
+<!-- session countdown section -->
+
+      <div class="row col-md-12 text-center">
+        <h1 class="text-center">Session</h1>
+      </div>
+      <div class="row col-md-12 text-center">
+        <p class="text-center" id="timer">Output</p>
+      </div>
+
+<!-- start and reset buttons -->
+
+      <div class="row">
+          <button class="col-md-6" value="start"><a href="#" class="btn btn-lg start"><i></i>start</a></button>
+          <button class="col-md-6" value="reset"><a href="#" class="btn btn-danger btn-lg reset"><i></i>reset</a></button>
+      </div>
+
+</div>
+
+<!-- Jquery reference -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+    <script src="main.js"></script>
+
+  </body>
+</html>
