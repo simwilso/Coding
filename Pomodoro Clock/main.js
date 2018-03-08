@@ -17,7 +17,10 @@ function timeIt() {
   $("#timer").html(convertMins(inSeconds));
   console.log(convertMins(inSeconds));
 } else {
+  $("body").css("background-color", "red");
+  $.playSound("http://www.soundjay.com/misc/sounds/bell-ringing-01.mp3")
   $("#timer").html("Have a break you deserve it!");
+  console.log("Have a break you deserve it!");
   console.log("Have a break you deserve it!");
 }
 }

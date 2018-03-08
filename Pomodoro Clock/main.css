@@ -1,0 +1,32 @@
+.topheading {
+  font-family: 'Bahiana';font-size: 80px;
+  padding: 4px 4px 4px 4px;
+}
+
+.headingfont {
+    font-family: 'Bahiana';font-size: 45px;
+    padding: 4px 4px 4px 4px;
+}
+
+.subfont {
+    font-family: 'Bahiana';font-size: 26px;
+    padding: 4px 4px 4px 4px;
+}
+
+.sectionodd {
+  background-color: #339966;
+}
+
+.body {
+  background-color: gray;
+}
+
+.p {
+  font-size: 45px;
+}
+
+.session {
+  font-size: 150px;
+  color: black;
+  background-color: #66ccff;
+}

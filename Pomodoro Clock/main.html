@@ -12,7 +12,7 @@
 
 
   </head>
-  <body>
+  <body class="body">
 
 <!-- html page -->
 
@@ -20,46 +20,59 @@
      <div class="row">
 <!-- heading title -->
        <div class="col-md-12 text-center">
-         <h1 class="headingfont">Pomodoro Clock</h1>
+         <h1 class="topheading">Pomodoro Clock</h1>
          <hr>
        </div>
 
 <!-- break and session length sub title -->
-      <div class="row">
+      <div class="row col-md-12 sectionodd">
         <div class="col-md-6 text-center">
-          <h3>Break</h3>
+          <h3 class="subfont">Break</h3>
         </div>
         <div class="col-md-6 text-center">
-          <h3>Session Length</h3>
+          <h3 class="subfont">Session Length</h3>
         </div>
 
 <!-- time up down and session length up down line -->
-      <div class="row">
-       <div class="col-md-6 text-center">
+      <div class="row col-md-12 sectionodd">
+       <div class="col-md-2 text-center">
            <button value="breakMinus"><a href="#" class="btn btn-lg BreakMinus"><i></i>-</a></button>
-           <p id="breakTime">5:00</p>
+       </div>
+       <div class="col-md-2 text-center">
+           <p class="p" id="breakTime">5:00</p>
+       </div>
+       <div class="col-md-2 text-center">
            <button value="breakPlus"><a href="#" class="btn btn-lg BreakPlus"><i></i>+</a></button>
        </div>
-       <div class="col-md-6 text-center">
+       <div class="col-md-2 text-center">
            <button value="sessionMinus"><a href="#" class="btn btn-lg SessionMinus"><i></i>-</a></button>
-           <p id="sessionTime">30:00</p>
+       </div>
+       <div class="col-md-2 text-center">
+           <p class="p" id="sessionTime">30:00</p>
+       </div>
+       <div class="col-md-2 text-center">
            <button value="sessionPlus"><a href="#" class="btn btn-lg SessionPlus"><i></i>+</a></button>
        </div>
 
 <!-- session countdown section -->
 
-      <div class="row col-md-12 text-center">
-        <h1 class="text-center">Session</h1>
+      <div class="col-md-12 text-center">
+        <hr>
+        <h1 class="headingfont">Session</h1>
       </div>
-      <div class="row col-md-12 text-center">
-        <p class="text-center" id="timer">30:00</p>
+      <div class="col-md-12 text-center">
+        <p class="session" id="timer">30:00</p>
       </div>
 
 <!-- start and reset buttons -->
 
-      <div class="row">
-          <button class="col-md-6" value="start"><a href="#" class="btn btn-lg start"><i></i>start</a></button>
-          <button class="col-md-6" value="reset"><a href="#" class="btn btn-danger btn-lg reset"><i></i>reset</a></button>
+      <div class="row col-md-12">
+        <div class="col-md-6 text-center">
+          <button value="start"><a href="#" class="btn btn-lg start"><i></i>start</a></button>
+        </div>
+        <div class="col-md-6 text-center">
+          <button value="reset"><a href="#" class="btn btn-danger btn-lg reset"><i></i>reset</a></button>
+        </div>
       </div>
 
 </div>
