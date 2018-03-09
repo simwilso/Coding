@@ -6,13 +6,13 @@ $(document).ready(function tictactoe() {
 var selected = "X";
 var game = [];
 var objgame = {TL: "#", TM: "#", TR: "#", ML: "#", MM: "#", MR: "#", BL: "#", BM: "#", BR: "#"}
-var counter = 0;
+//var counter = 10;
 
 // SETUP FUNCTIONS
 
 // select button and start game
 function start() {
-$(":input").click(function capture() {
+  $(":input").click(function capture() {
     if ($(this).val() === "resetX") {
       selected = "X";
       $("#message").html("So you think you can win with X? You wish!  Go ahead make your move!");
@@ -26,17 +26,18 @@ $(":input").click(function capture() {
       user();
       //need to clear the table
     }
-});
+  });
+}
+
+// function to play the game
+function play() {
+
 }
 
 // function to take the input from the user
 function user() {
-
-  if (!counter % 2) {
-
     $(".ticked").click(function capture() {
       var input = $(this).attr("id");
-      counter++;
       if (selected === "X") {
         $(this).html("X");
         objgame[input] = "X";
@@ -47,9 +48,6 @@ function user() {
         console.log(objgame);
       }
     });
-    } else {
-      computer();
-    }
 }
 
 // function for computers move
@@ -58,8 +56,6 @@ function computer() {
   //makes the appropriate move based on the above evaluation
   //if the evaluation realises a draw/win/or loss produce a message.
   console.log("now its my turn");
-  user();
-
 }
 
 //function to evaluate the current state of the game and propose the next move
