@@ -4,9 +4,8 @@ $(document).ready(function tictactoe() {
 
 // SETUP GLOBAL VARIABLES
 var selected = "X";
-var game = [];
 var objgame = {TL: "#", TM: "#", TR: "#", ML: "#", MM: "#", MR: "#", BL: "#", BM: "#", BR: "#"}
-//var counter = 10;
+var count = 0;
 
 // SETUP FUNCTIONS
 
@@ -14,38 +13,42 @@ var objgame = {TL: "#", TM: "#", TR: "#", ML: "#", MM: "#", MR: "#", BL: "#", BM
 function start() {
   $(":input").click(function capture() {
     if ($(this).val() === "resetX") {
+      reset();
       selected = "X";
       $("#message").html("So you think you can win with X? You wish!  Go ahead make your move!");
       console.log(selected);
-      user();
+      play();
       //need to clear the table
     } else if ($(this).val() === "resetO") {
+      reset();
       selected = "O";
       $("#message").html("So you think you can win with O? No chance!  Go ahead make your move!");
       console.log(selected);
-      user();
+      play();
       //need to clear the table
     }
   });
 }
 
-// function to play the game
+// WORKS - function to play the game
 function play() {
-
+ if (count % 2 == 0) {
+   user();
+ } else {
+   computer();
+ }
 }
 
-// function to take the input from the user
+// WORKS - function to take the input from the user
 function user() {
     $(".ticked").click(function capture() {
       var input = $(this).attr("id");
-      if (selected === "X") {
-        $(this).html("X");
-        objgame[input] = "X";
+      if (objgame[input] === "#") {
+        $(this).html(selected);
+        objgame[input] = selected;
         console.log(objgame);
-      } else {
-        $(this).html("O");
-        objgame[input] = "O";
-        console.log(objgame);
+        count++;
+        play();
       }
     });
 }
@@ -56,6 +59,7 @@ function computer() {
   //makes the appropriate move based on the above evaluation
   //if the evaluation realises a draw/win/or loss produce a message.
   console.log("now its my turn");
+  count++;
 }
 
 //function to evaluate the current state of the game and propose the next move
@@ -63,6 +67,12 @@ function position() {
 
 }
 
+//reset FUNCTION
+function reset() {
+  objgame = {TL: "#", TM: "#", TR: "#", ML: "#", MM: "#", MR: "#", BL: "#", BM: "#", BR: "#"}
+  count = 0;
+  $(".ticked").html("#");
+}
 
 start();
 });
