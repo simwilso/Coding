@@ -6,10 +6,11 @@ $(document).ready(function tictactoe() {
 var selected = "X";
 var objgame = {TL: "#", TM: "#", TR: "#", ML: "#", MM: "#", MR: "#", BL: "#", BM: "#", BR: "#"}
 var count = 0;
+var gameon = true;
 
 // SETUP FUNCTIONS
 
-// select button and start game
+// WORKS - select button and start game
 function start() {
   $(":input").click(function capture() {
     if ($(this).val() === "resetX") {
@@ -18,14 +19,12 @@ function start() {
       $("#message").html("So you think you can win with X? You wish!  Go ahead make your move!");
       console.log(selected);
       play();
-      //need to clear the table
     } else if ($(this).val() === "resetO") {
       reset();
       selected = "O";
       $("#message").html("So you think you can win with O? No chance!  Go ahead make your move!");
       console.log(selected);
       play();
-      //need to clear the table
     }
   });
 }
@@ -59,35 +58,143 @@ function computer() {
   //makes the appropriate move based on the above evaluation
   //if the evaluation realises a draw/win/or loss produce a message.
   console.log("now its my turn");
+  winner();
   count++;
 }
 
 //function to evaluate the current state of the game and propose the next move
-function position() {
+function algo() {
 
 }
 
-//reset FUNCTION
+//WORKS - function for win conditions
+function winner() {
+//win for the Xs
+    if (objgame.TL === "X" && objgame.TM === "X" && objgame.TR === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    else if (objgame.TL === "X" && objgame.MM === "X" && objgame.BR === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    else if (objgame.TL === "X" && objgame.ML === "X" && objgame.BL === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    else if (objgame.ML === "X" && objgame.MM === "X" && objgame.MR === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    else if (objgame.BL === "X" && objgame.BM === "X" && objgame.BR === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    else if (objgame.BL === "X" && objgame.MM === "X" && objgame.TR === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    else if (objgame.TM === "X" && objgame.MM === "X" && objgame.BM === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    else if (objgame.TR === "X" && objgame.MR === "X" && objgame.BR === "X") {
+      if (selected === "X") {
+        $("#message").html("OMG you won!!");
+      } else {
+        $("#message").html("Kicked your arse again!!");
+      }
+    }
+    //win for the Os
+        else if (objgame.TL === "O" && objgame.TM === "O" && objgame.TR === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        }
+        else if (objgame.TL === "O" && objgame.MM === "O" && objgame.BR === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        }
+        else if (objgame.TL === "O" && objgame.ML === "O" && objgame.BL === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        }
+        else if (objgame.ML === "O" && objgame.MM === "O" && objgame.MR === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        }
+        else if (objgame.BL === "O" && objgame.BM === "O" && objgame.BR === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        }
+        else if (objgame.BL === "O" && objgame.MM === "O" && objgame.TR === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        }
+        else if (objgame.TM === "O" && objgame.MM === "O" && objgame.BM === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        }
+        else if (objgame.TR === "O" && objgame.MR === "O" && objgame.BR === "O") {
+          if (selected === "O") {
+            $("#message").html("OMG you won!!");
+          } else {
+            $("#message").html("Kicked your arse again!!");
+          }
+        } else {
+          $("#message").html("nice try!");
+        }
+  }
+
+
+//WORKS - reset FUNCTION
 function reset() {
   objgame = {TL: "#", TM: "#", TR: "#", ML: "#", MM: "#", MR: "#", BL: "#", BM: "#", BR: "#"}
   count = 0;
   $(".ticked").html("#");
 }
 
+//start the game
 start();
 });
-
-
-//<label class="container">X
-//  <button value="resetX" id="resetX" type="radio" checked="checked" name="radio">
-//  <span class="checkmark"></span>
-//</label>
-
-//    <button value="resetX"><a href="#" class="btn btn-lg"><i></i>X</a></button>
-
-//<label class="container">O
-//  <button value="resetO" id="resetO" type="radio" name="radio">
-//  <span class="checkmark"></span>
-//</label>
-
-//    <button value="resetO"><a href="#" class="btn btn-lg"><i></i>O</a></button>
