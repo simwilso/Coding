@@ -1,22 +1,70 @@
-$(document).ready(function tictactoe() {
+$(document).ready(function simonsays() {
 // JAVASCRIPT
 
 // SETUP GLOBAL VARIABLES
 var userObj = {1: "#", 2: "#", 3: "#", 4: "#", 5: "#", 6: "#", 7: "#", 8: "#", 9: "#", 10: "#", 11: "#", 12: "#", 13: "#", 14: "#", 15: "#", 16: "#", 17: "#", 18: "#", 19: "#", 20: "#"};
 var compObj = {1: "#", 2: "#", 3: "#", 4: "#", 5: "#", 6: "#", 7: "#", 8: "#", 9: "#", 10: "#", 11: "#", 12: "#", 13: "#", 14: "#", 15: "#", 16: "#", 17: "#", 18: "#", 19: "#", 20: "#"};
-var count = 0;
-var i = 0;
-var j = 0;
-var k = 0;
+var count;
+
 
 //PROGRAM
-run();
+counter();
 
 // FUNCTIONS
+
+//counter FUNCTION
+function counter(count) {
+  setTimeout(function () {
+    for (count; count<=20; count++) {
+      $("#count").html(count);
+//if counter < 20 run this
+      if (count <= 20) {
+        compObj[count] = count;
+        console.log(compObj);
+      }
+//} //if counter = 20 you win
+      $("#green").html("WINNER");
+      $("#red").html("WINNER");
+      $("#yellow").html("WINNER");
+      $("#blue").html("WINNER");
+      console.log(compObj);
+      window.setTimeout(reset, 5000);
+    }
+  }, 3000);
+    // reset button
+  $("#reset").click(function capture() {
+      reset();
+      });
+  }
+//run FUNCTION
+
+//computers turn FUNCTION
+
+//users turn FUNCTION
+
+// reset FUNCTION
+function reset() {
+  window.location.reload();
+}
+
+
+
+
+
+
+
+
 // program to run
+
+//show the count variable on the output
+//run the computers turn and fill the compObj with the amount of elements of counter
+//user runs his turn to fill userObj.. at each step check that user selection corresponds to computers
+//if it does then populate userObj and increment a user counter..
+//when you reach the value of the counter variable
+
+
+
 function run() {
-    userObj = {1: "#", 2: "#", 3: "#", 4: "#", 5: "#", 6: "#", 7: "#", 8: "#", 9: "#", 10: "#", 11: "#", 12: "#", 13: "#", 14: "#", 15: "#", 16: "#", 17: "#", 18: "#", 19: "#", 20: "#"};
-  //  count++;
     $("#count").html(count);
     incrementComp();
     user();
@@ -36,10 +84,7 @@ function user() {
         run();
       });
 
-// reset function
-      $("#reset").click(function capture() {
-        window.location.reload();
-      });
+
 }
 
 // function to generate computers flash combination
@@ -97,10 +142,7 @@ function checkInput() {
 }
 // strict mode
 
-// reset FUNCTION
-function reset() {
-  window.location.reload();
-}
+
 
 // function timer
 function timerGreen() {
