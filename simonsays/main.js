@@ -2,159 +2,249 @@ $(document).ready(function simonsays() {
 // JAVASCRIPT
 
 // SETUP GLOBAL VARIABLES
-var userObj = {1: "#", 2: "#", 3: "#", 4: "#", 5: "#", 6: "#", 7: "#", 8: "#", 9: "#", 10: "#", 11: "#", 12: "#", 13: "#", 14: "#", 15: "#", 16: "#", 17: "#", 18: "#", 19: "#", 20: "#"};
-var compObj = {1: "#", 2: "#", 3: "#", 4: "#", 5: "#", 6: "#", 7: "#", 8: "#", 9: "#", 10: "#", 11: "#", 12: "#", 13: "#", 14: "#", 15: "#", 16: "#", 17: "#", 18: "#", 19: "#", 20: "#"};
-var count;
+var colorObj = {0: "green", 1: "red", 2: "yellow", 3: "blue"};
+//var userObj = {1: "#", 2: "#", 3: "#", 4: "#", 5: "#", 6: "#", 7: "#", 8: "#", 9: "#", 10: "#", 11: "#", 12: "#", 13: "#", 14: "#", 15: "#", 16: "#", 17: "#", 18: "#", 19: "#", 20: "#"};
+//var compObj = {1: "#", 2: "#", 3: "#", 4: "#", 5: "#", 6: "#", 7: "#", 8: "#", 9: "#", 10: "#", 11: "#", 12: "#", 13: "#", 14: "#", 15: "#", 16: "#", 17: "#", 18: "#", 19: "#", 20: "#"};
+
+var level = 20;
+var currentLevel = 0;
+var strict = false;
+var error = false;
+var sounds = [
+  "http://www.soundjay.com/button/sounds/button-4.mp3", //green
+  "http://www.soundjay.com/button/sounds/button-09.mp3", //red
+  "http://www.soundjay.com/button/sounds/button-10.mp3", //yellow
+  "http://www.soundjay.com/button/sounds/button-7.mp3" //blue
+];
+
+var userArray = [];
+var compArray = [];
 
 
 //PROGRAM
-counter();
 
 // FUNCTIONS
 
-//counter FUNCTION
-function counter(count) {
-  setTimeout(function () {
-    for (count; count<=20; count++) {
-      $("#count").html(count);
-//if counter < 20 run this
-      if (count <= 20) {
-        compObj[count] = count;
-        console.log(compObj);
-      }
-//} //if counter = 20 you win
-      $("#green").html("WINNER");
-      $("#red").html("WINNER");
-      $("#yellow").html("WINNER");
-      $("#blue").html("WINNER");
-      console.log(compObj);
-      window.setTimeout(reset, 5000);
+//START/RESET BUTTON event handler.
+$("#reset").click(function capture() {
+    $("#strict").css("background-color", "white");
+    $(".ticked").css("background-color", "");
+    currentLevel = 0;
+    currentLevel++;
+    strict = false;
+    error = false;
+    userArray = [];
+    compArray = [];
+    computer();//start computer sequence.
+});
+
+
+//STRICT BUTTON event handler.
+$("#strict").click(function capture() {
+    $("#strict").css("background-color", "gray");
+    currentLevel = 0;
+    strict = true;
+    error = false;
+    currentLevel++
+    userArray = [];
+    compArray = [];
+    computer();//start computer sequence.
+});
+
+//USER button event handler.
+$(".ticked").click(function capture() {
+    var input = $(this).attr("id");
+    $("#"+input).css("background-color", "gray");
+    setInterval(timer, 2000);
+    user(input);//kickoff user sequence check
+});
+
+//FUNCTIONS
+
+//CHECK USER to COMP Choice
+function checkSeq() {
+  for(var i = 0; i < userArray.length; i++) {
+    if(userArray[i] != compArray[i]) {
+      return false;
     }
-  }, 3000);
-    // reset button
-  $("#reset").click(function capture() {
-      reset();
-      });
   }
-//run FUNCTION
-
-//computers turn FUNCTION
-
-//users turn FUNCTION
-
-// reset FUNCTION
-function reset() {
-  window.location.reload();
+  return true;
 }
 
-
-
-
-
-
-
-
-// program to run
-
-//show the count variable on the output
-//run the computers turn and fill the compObj with the amount of elements of counter
-//user runs his turn to fill userObj.. at each step check that user selection corresponds to computers
-//if it does then populate userObj and increment a user counter..
-//when you reach the value of the counter variable
-
-
-
-function run() {
-    $("#count").html(count);
-    incrementComp();
-    user();
-  }
-
-
-// function to capture users button pushes
-function user() {
-      $(".ticked").click(function capture() {
-        var input = $(this).attr("id");
-        if (j <= count) {
-          userObj[j] = input;
-          console.log(userObj);
-          checkInput();
-          j++
-        }
-        run();
-      });
-
-
-}
-
-// function to generate computers flash combination
-function computer() {
-  var AITurn = (Math.random()*3).toFixed();
-  console.log(AITurn);
-    switch(AITurn) {
-      case "0":
-        compObj[i] = "green";
-        $("#green").css("background-color", "gray");
-        setInterval(timerGreen, 2000);
-        console.log(compObj);
-        break;
-      case "1":
-        compObj[i] = "red";
-        $("#red").css("background-color", "gray");
-        setInterval(timerRed, 2000);
-        console.log(compObj);
-        break;
-      case "2":
-        compObj[i] = "yellow";
-        $("#yellow").css("background-color", "gray");
-        setInterval(timerYellow, 2000);
-        console.log(compObj);
-        break;
-      case "3":
-        compObj[i] = "blue";
-        $("#blue").css("background-color", "gray");
-        setInterval(timerBlue, 2000);
-        console.log(compObj);
-        break;
+//USERS sequence
+function user(input) {
+  userArray.push(input);
+  addSound(id);//, color);
+  console.log(userArray);
+    if(!checkSeq()) {
+      //if playing strict mode reset everything
+      if(strict) {
+        console.log("strict");
+        compArray = [];
+        currentLevel = 0;
       }
-  }
-// function to increment the counter for computer
-function incrementComp() {
-    setTimeout(function () {
+      error = true;
+      disError();
+      userArray = [];
       computer();
-      i++;
-      if (i < count) {
-        incrementComp();
-      }
-    } , 3000);
-}
-
-
-
-// function to check if the combination entered is correct
-function checkInput() {
-  if (userObj[j] !== compObj[j]) {
-    console.log("incorrect choice");
-    $("#count").html("You chose Wrong!");
-    window.setTimeout(reset, 5000);
+    }
+  //checking end of sequence
+  else if(userArray.length == compArray.length && userArray.length < level) {
+    currentLevel++;
+    userArray = [];
+    error = false;
+    computer();
   }
+  //checking for winners
+  if(userArray.length == level) {
+    winner();
+    resetGame();
+  }
+}
 
-}
-// strict mode
+//COMPUTERS sequence
+
+function computer() {
+    $("#count").html(currentLevel);
+    //setInterval(timer, 4000);
+    if(!error) {
+      var AITurn = colorObj[(Math.random()*3).toFixed()];
+      compArray.push(AITurn);
+      $("#"+AITurn).css("background-color", "gray");
+      console.log(compArray);
+/*      switch(AITurn) {
+        case "0":
+          compArray.push("green");
+          $("#green").css("background-color", "gray");
+          setInterval(timer, 3000);
+          console.log(compArray);
+          break;
+        case "1":
+          compArray.push("red");
+          $("#red").css("background-color", "gray");
+          setInterval(timer, 3000);
+          console.log(compArray);
+          break;
+        case "2":
+          compArray.push("yellow");
+          $("#yellow").css("background-color", "gray");
+          setInterval(timer, 3000);
+          console.log(compArray);
+          break;
+        case "3":
+          compArray.push("blue");
+          $("#blue").css("background-color", "gray");
+          setInterval(timer, 3000);
+          console.log(compArray);
+          break;
+        } */
+      }
+      if(error && strict) {
+        var AITurn = colorObj[(Math.random()*3).toFixed()];
+        compArray.push(AITurn);
+        $("#"+AITurn).css("background-color", "gray");
+
+  /*      switch(AITurn) {
+          case "0":
+            compArray.push("green");
+            $("#green").css("background-color", "gray");
+            setInterval(timer, 3000);
+            console.log(compArray);
+            break;
+          case "1":
+            compArray.push("red");
+            $("#red").css("background-color", "gray");
+            setInterval(timer, 3000);
+            console.log(compArray);
+            break;
+          case "2":
+            compArray.push("yellow");
+            $("#yellow").css("background-color", "gray");
+            setInterval(timer, 3000);
+            console.log(compArray);
+            break;
+          case "3":
+            compArray.push("blue");
+            $("#blue").css("background-color", "gray");
+            setInterval(timer, 3000);
+            console.log(compArray);
+            break;
+          } */
+        }
+        var i = 0;
+        var myInterval = setInterval(function() {
+          id = compArray[i];
+          color = $("#"+AITurn).css("background-color", "");
+          //color = color.split(" ")[1];
+          //console.log(id+" "+color);
+          addSound(id);//, color);
+          i++;
+          if(i == compArray.length) {
+            clearInterval(myInterval);
+          }
+        }, 2000);
+      }
 
 
+//RESET Game FUNCTION
+function resetGame() {
+  $("#strict").css("background-color", "white");
+  $(".ticked").css("background-color", "");
+  count = 0;
+  currentLevel = 0;
+  strict = false;
+  error = false;
+  userArray = [];
+  compArray = [];
+}
 
-// function timer
-function timerGreen() {
- $("#green").css("background-color", "green");
+//DISPLAY a WINNER
+function winner() {
+  var count = 0;
+  var winInterval = setInterval(function() {
+    count++;
+    $("#count").text("WINNER");
+    if(count == 5) {
+      clearInterval(winInterval);
+      $("#count").text("0");
+      count = 0;
+    }
+  }, 500);
 }
-function timerBlue() {
- $("#blue").css("background-color", "blue");
+
+//DISPLAY a error
+function disError() {
+  console.log("error");
+  var counter = 0;
+  var myError = setInterval(function() {
+  $("#count").text("ERROR");
+  counter++;
+    if(counter == 3) {
+        $("#count").text(currentLevel);
+        clearInterval(myError);
+        userSeq = [];
+        counter = 0;
+    }
+  }, 500);
+  resetGame();
 }
-function timerYellow() {
- $("#yellow").css("background-color", "yellow");
+
+//Play a sound
+function addSound(id, color) {
+  playSound(id)
+  setTimeout(function(){
+  }, 500);
 }
-function timerRed() {
- $("#red").css("background-color", "red");
+
+// play board sound
+function playSound(id) {
+  var sound = new Audio(playSound[id]);
+  sound.play();
 }
+
+// BUTTON timer function
+function timer() {
+ $(".ticked").css("background-color", "");
+}
+
 });
