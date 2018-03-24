@@ -1,0 +1,151 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'webpack-cli@^4.0.0' ]
+2 info using npm@3.10.10
+3 info using node@v6.9.4
+4 verbose config Skipping project config: /Users/simonwilson/.npmrc. (matches userconfig)
+5 silly loadCurrentTree Starting
+6 silly install loadCurrentTree
+7 silly install readLocalPackageData
+8 silly fetchPackageMetaData webpack-cli@^4.0.0
+9 silly fetchNamedPackageData webpack-cli
+10 silly mapToRegistry name webpack-cli
+11 silly mapToRegistry using default registry
+12 silly mapToRegistry registry https://registry.npmjs.org/
+13 silly mapToRegistry data Result {
+13 silly mapToRegistry   raw: 'webpack-cli',
+13 silly mapToRegistry   scope: null,
+13 silly mapToRegistry   escapedName: 'webpack-cli',
+13 silly mapToRegistry   name: 'webpack-cli',
+13 silly mapToRegistry   rawSpec: '',
+13 silly mapToRegistry   spec: 'latest',
+13 silly mapToRegistry   type: 'tag' }
+14 silly mapToRegistry uri https://registry.npmjs.org/webpack-cli
+15 verbose request uri https://registry.npmjs.org/webpack-cli
+16 verbose request no auth needed
+17 info attempt registry request try #1 at 9:05:56 AM
+18 verbose request id f64321415f655210
+19 verbose etag "5ab3d8c9-1cb9a"
+20 verbose lastModified Thu, 22 Mar 2018 16:24:41 GMT
+21 http request GET https://registry.npmjs.org/webpack-cli
+22 http 304 https://registry.npmjs.org/webpack-cli
+23 verbose headers { date: 'Sat, 24 Mar 2018 23:05:57 GMT',
+23 verbose headers   via: '1.1 varnish',
+23 verbose headers   'cache-control': 'max-age=300',
+23 verbose headers   etag: '"5ab3d8c9-1cb9a"',
+23 verbose headers   age: '2258',
+23 verbose headers   connection: 'keep-alive',
+23 verbose headers   'x-served-by': 'cache-mel19035-MEL',
+23 verbose headers   'x-cache': 'HIT',
+23 verbose headers   'x-cache-hits': '2',
+23 verbose headers   'x-timer': 'S1521932757.081191,VS0,VE0',
+23 verbose headers   vary: 'Accept-Encoding, Accept' }
+24 silly get cb [ 304,
+24 silly get   { date: 'Sat, 24 Mar 2018 23:05:57 GMT',
+24 silly get     via: '1.1 varnish',
+24 silly get     'cache-control': 'max-age=300',
+24 silly get     etag: '"5ab3d8c9-1cb9a"',
+24 silly get     age: '2258',
+24 silly get     connection: 'keep-alive',
+24 silly get     'x-served-by': 'cache-mel19035-MEL',
+24 silly get     'x-cache': 'HIT',
+24 silly get     'x-cache-hits': '2',
+24 silly get     'x-timer': 'S1521932757.081191,VS0,VE0',
+24 silly get     vary: 'Accept-Encoding, Accept' } ]
+25 verbose etag https://registry.npmjs.org/webpack-cli from cache
+26 verbose get saving webpack-cli to /Users/simonwilson/.npm/registry.npmjs.org/webpack-cli/.cache.json
+27 verbose correctMkdir /Users/simonwilson/.npm correctMkdir not in flight; initializing
+28 silly fetchNamedPackageData No valid target from cache, forcing network
+29 verbose request uri https://registry.npmjs.org/webpack-cli
+30 verbose request no auth needed
+31 info attempt registry request try #1 at 9:05:56 AM
+32 http request GET https://registry.npmjs.org/webpack-cli
+33 http 200 https://registry.npmjs.org/webpack-cli
+34 verbose headers { 'content-type': 'application/json; charset=UTF-8',
+34 verbose headers   server: 'UploadServer',
+34 verbose headers   'cache-control': 'max-age=300',
+34 verbose headers   'last-modified': 'Thu, 22 Mar 2018 16:24:41 GMT',
+34 verbose headers   etag: '"5ab3d8c9-1cb9a"',
+34 verbose headers   'x-npm-region': 'OZ',
+34 verbose headers   'content-encoding': 'gzip',
+34 verbose headers   'content-length': '11527',
+34 verbose headers   'accept-ranges': 'bytes',
+34 verbose headers   date: 'Sat, 24 Mar 2018 23:05:57 GMT',
+34 verbose headers   via: '1.1 varnish',
+34 verbose headers   age: '2258',
+34 verbose headers   connection: 'keep-alive',
+34 verbose headers   'x-served-by': 'cache-mel19035-MEL',
+34 verbose headers   'x-cache': 'HIT',
+34 verbose headers   'x-cache-hits': '3',
+34 verbose headers   'x-timer': 'S1521932757.150674,VS0,VE0',
+34 verbose headers   vary: 'Accept-Encoding, Accept' }
+35 silly get cb [ 200,
+35 silly get   { 'content-type': 'application/json; charset=UTF-8',
+35 silly get     server: 'UploadServer',
+35 silly get     'cache-control': 'max-age=300',
+35 silly get     'last-modified': 'Thu, 22 Mar 2018 16:24:41 GMT',
+35 silly get     etag: '"5ab3d8c9-1cb9a"',
+35 silly get     'x-npm-region': 'OZ',
+35 silly get     'content-encoding': 'gzip',
+35 silly get     'content-length': '11527',
+35 silly get     'accept-ranges': 'bytes',
+35 silly get     date: 'Sat, 24 Mar 2018 23:05:57 GMT',
+35 silly get     via: '1.1 varnish',
+35 silly get     age: '2258',
+35 silly get     connection: 'keep-alive',
+35 silly get     'x-served-by': 'cache-mel19035-MEL',
+35 silly get     'x-cache': 'HIT',
+35 silly get     'x-cache-hits': '3',
+35 silly get     'x-timer': 'S1521932757.150674,VS0,VE0',
+35 silly get     vary: 'Accept-Encoding, Accept' } ]
+36 verbose get saving webpack-cli to /Users/simonwilson/.npm/registry.npmjs.org/webpack-cli/.cache.json
+37 verbose correctMkdir /Users/simonwilson/.npm correctMkdir not in flight; initializing
+38 silly fetchPackageMetaData Error: No compatible version found: webpack-cli@^4.0.0
+38 silly fetchPackageMetaData Valid install targets:
+38 silly fetchPackageMetaData 2.0.13, 2.0.12, 2.0.11, 2.0.10, 2.0.9, 2.0.8, 2.0.7, 2.0.6, 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, 2.0.0, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.9, 1.3.8, 1.3.7, 1.3.5, 1.3.4, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.0.0
+38 silly fetchPackageMetaData
+38 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (/usr/local/lib/node_modules/npm/lib/fetch-package-metadata.js:178:16)
+38 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+38 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/lib/utils/pulse-till-done.js:20:8
+38 silly fetchPackageMetaData     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:174:7)
+38 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:241:18
+38 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:123:15)
+38 silly fetchPackageMetaData  error for webpack-cli@^4.0.0 { Error: No compatible version found: webpack-cli@^4.0.0
+38 silly fetchPackageMetaData Valid install targets:
+38 silly fetchPackageMetaData 2.0.13, 2.0.12, 2.0.11, 2.0.10, 2.0.9, 2.0.8, 2.0.7, 2.0.6, 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, 2.0.0, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.9, 1.3.8, 1.3.7, 1.3.5, 1.3.4, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.0.0
+38 silly fetchPackageMetaData
+38 silly fetchPackageMetaData     at pickVersionFromRegistryDocument (/usr/local/lib/node_modules/npm/lib/fetch-package-metadata.js:178:16)
+38 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+38 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/lib/utils/pulse-till-done.js:20:8
+38 silly fetchPackageMetaData     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:174:7)
+38 silly fetchPackageMetaData     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:241:18
+38 silly fetchPackageMetaData     at FSReqWrap.oncomplete (fs.js:123:15) code: 'ETARGET' }
+39 silly rollbackFailedOptional Starting
+40 silly rollbackFailedOptional Finishing
+41 silly runTopLevelLifecycles Finishing
+42 silly install printInstalled
+43 verbose stack Error: No compatible version found: webpack-cli@^4.0.0
+43 verbose stack Valid install targets:
+43 verbose stack 2.0.13, 2.0.12, 2.0.11, 2.0.10, 2.0.9, 2.0.8, 2.0.7, 2.0.6, 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, 2.0.0, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.9, 1.3.8, 1.3.7, 1.3.5, 1.3.4, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.0.0
+43 verbose stack
+43 verbose stack     at pickVersionFromRegistryDocument (/usr/local/lib/node_modules/npm/lib/fetch-package-metadata.js:178:16)
+43 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/iferr/index.js:13:50
+43 verbose stack     at /usr/local/lib/node_modules/npm/lib/utils/pulse-till-done.js:20:8
+43 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:174:7)
+43 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:241:18
+43 verbose stack     at FSReqWrap.oncomplete (fs.js:123:15)
+44 verbose cwd /Users/simonwilson/Documents/Coding/ethereum_voting_dapp/chapter1
+45 error Darwin 17.4.0
+46 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install" "webpack-cli@^4.0.0"
+47 error node v6.9.4
+48 error npm  v3.10.10
+49 error code ETARGET
+50 error notarget No compatible version found: webpack-cli@^4.0.0
+50 error notarget Valid install targets:
+50 error notarget 2.0.13, 2.0.12, 2.0.11, 2.0.10, 2.0.9, 2.0.8, 2.0.7, 2.0.6, 2.0.5, 2.0.4, 2.0.3, 2.0.2, 2.0.1, 2.0.0, 1.5.3, 1.5.2, 1.5.1, 1.5.0, 1.4.8, 1.4.7, 1.4.6, 1.4.5, 1.4.4, 1.4.3, 1.4.2, 1.4.1, 1.4.0, 1.3.9, 1.3.8, 1.3.7, 1.3.5, 1.3.4, 1.3.3, 1.3.2, 1.3.1, 1.3.0, 1.0.0
+51 error notarget This is most likely not a problem with npm itself.
+51 error notarget In most cases you or one of your dependencies are requesting
+51 error notarget a package version that doesn't exist.
+52 verbose exit [ 1, true ]
