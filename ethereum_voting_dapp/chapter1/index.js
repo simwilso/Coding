@@ -5,7 +5,7 @@ VotingContract = web3.eth.contract(abi);
 //update the contract code below with my contract.
 
 
-contractInstance = VotingContract.at('0x9d1c384397462f5df133912b72557c1b5b6e5499');
+contractInstance = VotingContract.at('0xea53a1225cda4cf9ae7e6af4f6a5980de25d5416');
 candidates = {"Rama": "candidate-1", "Nick": "candidate-2", "Jose": "candidate-3"}
 
 function voteForCandidate(candidate) {
