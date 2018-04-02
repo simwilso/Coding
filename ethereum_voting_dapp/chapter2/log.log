@@ -1,0 +1,18 @@
+npm install -g truffle
+
+//install truffle files in the directory.
+
+mkdir -p ethereum_voting_dapp/chapter2
+cd ethereum_voting_dapp/chapter2
+npm install -g webpack
+truffle unbox webpack
+ls
+README.md       contracts       node_modules      test          webpack.config.js   truffle.js
+app          migrations       package.json
+ls app/
+index.html javascripts stylesheets
+ls contracts/
+ConvertLib.sol MetaCoin.sol Migrations.sol
+ls migrations/
+1_initial_migration.js 2_deploy_contracts.js
+rm contracts/ConvertLib.sol contracts/MetaCoin.sol
