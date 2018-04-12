@@ -1,7 +1,0 @@
-// Replace 'verystrongpassword' with a good strong password.
-truffle(default)> web3.personal.newAccount('Hi.....^')
-'0x78b72be3d121cb46efc4630446c74e48d92e22a9'
-truffle(default)> web3.eth.getBalance('0x78b72be3d121cb46efc4630446c74e48d92e22a9')
-{ [String: '0'] s: 1, e: 0, c: [ 0 ] }
-truffle(default)> web3.eth.personal.unlockAccount('0x78b72be3d121cb46efc4630446c74e48d92e22a9', 'High3tt!@#$%^', 15000)
-web3.eth.personal.unlockAccount('0x78b72be3d121cb46efc4630446c74e48d92e22a9');
