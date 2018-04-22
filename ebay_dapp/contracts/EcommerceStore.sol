@@ -1,5 +1,3 @@
-
-
 pragma solidity ^0.4.13;
 
 contract EcommerceStore {
@@ -38,3 +36,4 @@ contract EcommerceStore {
  function EcommerceStore() public {
   productIndex = 0;
  }
+}
