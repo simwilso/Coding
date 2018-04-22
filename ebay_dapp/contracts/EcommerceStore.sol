@@ -1,19 +1,28 @@
+
+
 pragma solidity ^0.4.13;
 
 contract EcommerceStore {
+
+//enums are user defined types stored as integers i.e. they will be stored as 0,1,2
  enum ProductStatus { Open, Sold, Unsold }
  enum ProductCondition { New, Used }
 
+//this is just a reference for each product added
  uint public productIndex;
+
+//which address added which product
  mapping (address => mapping(uint => Product)) stores;
+//which products are in which merchants store
  mapping (uint => address) productIdInStore;
 
+//list of all the products and their details
  struct Product {
   uint id;
   string name;
   string category;
-  string imageLink;
-  string descLink;
+  string imageLink;  //this will be an IPFS link so not to clog up the bchain
+  string descLink;   //this will be an IPFS link so not to clog up the bchain
   uint auctionStartTime;
   uint auctionEndTime;
   uint startPrice;
@@ -25,22 +34,7 @@ contract EcommerceStore {
   ProductCondition condition;
  }
 
+ //initialize store
  function EcommerceStore() public {
   productIndex = 0;
  }
- function addProductToStore(string _name, string _category, string _imageLink, string _descLink, uint _auctionStartTime,
-  uint _auctionEndTime, uint _startPrice, uint _productCondition) public {
-  require (_auctionStartTime < _auctionEndTime);
-  productIndex += 1;
-  Product memory product = Product(productIndex, _name, _category, _imageLink, _descLink, _auctionStartTime, _auctionEndTime,
-                   _startPrice, 0, 0, 0, 0, ProductStatus.Open, ProductCondition(_productCondition));
-  stores[msg.sender][productIndex] = product;
-  productIdInStore[productIndex] = msg.sender;
-}
-
-function getProduct(uint _productId) view public returns (uint, string, string, string, string, uint, uint, uint, ProductStatus, ProductCondition) {
-  Product memory product = stores[productIdInStore[_productId]][_productId];
-  return (product.id, product.name, product.category, product.imageLink, product.descLink, product.auctionStartTime,
-      product.auctionEndTime, product.startPrice, product.status, product.condition);
-}
-}
