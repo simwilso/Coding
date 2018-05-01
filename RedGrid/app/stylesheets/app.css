@@ -1,9 +1,14 @@
+/*
 body {
   margin-left: 25%;
   margin-right: 25%;
-  margin-top: 10%;
+  margin-top: 0%;
   font-family: "Open Sans", sans-serif;
+  background-image : url("Technical Architecture VE.jpg");
+  background-position: top top;
+  background-repeat: no-repeat;
 }
+*/
 
 label {
   display: inline-block;
@@ -24,6 +29,7 @@ button {
 h1, h2 {
   display: inline-block;
   vertical-align: middle;
+  font-family: sans-serif;font-size: 35px;
   margin-top: 0px;
   margin-bottom: 10px;
 }
@@ -49,4 +55,20 @@ h3 {
 
 .hint {
   color: #666;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  background-color: #777777;
+  padding: 10px;
+  margin: auto;
+  width: 50%;
+}
+.grid-item {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
 }
