@@ -14,6 +14,12 @@ const ethUtil = require('ethereumjs-util');
 const ipfs = ipfsAPI({host: 'localhost', port: '5001', protocol: 'http'});
 
 window.App = {
+  // This if block should be with in the window.App = {} function
+ if($("#product-details").length > 0) {
+  //This is product details page
+  let productId = new URLSearchParams(window.location.search).get('id');
+  renderProductDetails(productId);
+ }
  start: function() {
   var self = this;
   EcommerceStore.setProvider(web3.currentProvider);
@@ -64,6 +70,70 @@ window.App = {
    event.preventDefault();
 });
  }
+ function renderProductDetails(productId) {
+  EcommerceStore.deployed().then(function(i) {
+   i.getProduct.call(productId).then(function(p) {
+    console.log(p);
+    let content = "";
+    ipfs.cat(p[4]).then(function(file) {
+     content = file.toString();
+     $("#product-desc").append("<div>" + content+ "</div>");
+    });
+
+    $("#product-image").append("<img src='https://ipfs.io/ipfs/" + p[3] + "' width='250px' />");
+    $("#product-price").html(displayPrice(p[7]));
+    $("#product-name").html(p[1].name);
+    $("#product-auction-end").html(displayEndHours(p[6]));
+    $("#product-id").val(p[0]);
+    $("#revealing, #bidding").hide();
+    let currentTime = getCurrentTimeInSeconds();
+    if(currentTime < p[6]) {
+     $("#bidding").show();
+    } else if (currentTime - (60) < p[6]) {
+     $("#revealing").show();
+    }
+   })
+  })
+ }
+
+
+ function getCurrentTimeInSeconds(){
+  return Math.round(new Date() / 1000);
+ }
+
+ function displayPrice(amt) {
+  return 'Ξ' + web3.fromWei(amt, 'ether');
+ }
+
+
+ function displayEndHours(seconds) {
+  let current_time = getCurrentTimeInSeconds()
+  let remaining_seconds = seconds - current_time;
+
+  if (remaining_seconds <= 0) {
+   return "Auction has ended";
+  }
+
+  let days = Math.trunc(remaining_seconds / (24*60*60));
+
+  remaining_seconds -= days*24*60*60
+  let hours = Math.trunc(remaining_seconds / (60*60));
+
+  remaining_seconds -= hours*60*60
+
+  let minutes = Math.trunc(remaining_seconds / 60);
+
+  if (days > 0) {
+   return "Auction ends in " + days + " days, " + hours + ", hours, " + minutes + " minutes";
+  } else if (hours > 0) {
+   return "Auction ends in " + hours + " hours, " + minutes + " minutes ";
+  } else if (minutes > 0) {
+   return "Auction ends in " + minutes + " minutes ";
+  } else {
+   return "Auction ends in " + remaining_seconds + " seconds";
+  }
+ }
+
 };
 
 function saveProduct(reader, decodedParams) {
