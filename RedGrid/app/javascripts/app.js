@@ -36,28 +36,52 @@ $("button").click(function capture() {
 
   if ($(this).val() === "hm1Consume") {
     console.log("hm1Consume");
-    $("#genBalance").html("hm1C");
+    $("#hm1Produce").css('color',"white");        //put corresponding button back to orig
+    $(this).css('color','black');                 //change color of selected button
+    $("#genBalance").html("hm1C");                //update the generator balance
+    $("#hm1Balance").html("C");                //update the hm1 balance
   } else if ($(this).val() === "hm1Produce") {
     console.log("hm1Produce");
+    $("#hm1Consume").css('color',"white");
+    $(this).css('color','black');
     $("#genBalance").html("hm1P");
+    $("#hm1Balance").html("P");
   } else if ($(this).val() === "hm2Consume") {
     console.log("hm2Consume");
+    $("#hm2Produce").css('color',"white");
+    $(this).css('color','black');
     $("#genBalance").html("hm2C");
+    $("#hm2Balance").html("C");
   } else if ($(this).val() === "hm2Produce") {
     console.log("hm2Produce");
+    $("#hm2Consume").css('color',"white");
+    $(this).css('color','black');
     $("#genBalance").html("hm2P");
+    $("#hm2Balance").html("P");
   } else if ($(this).val() === "hm3Consume") {
     console.log("hm3Consume");
+    $("#hm3Produce").css('color',"white");
+    $(this).css('color','black');
     $("#genBalance").html("hm3C");
+    $("#hm3Balance").html("C");
   } else if ($(this).val() === "hm3Produce") {
     console.log("hm3Produce");
+    $("#hm3Consume").css('color',"white");
+    $(this).css('color','black');
     $("#genBalance").html("hm3P");
+    $("#hm3Balance").html("P");
   } else if ($(this).val() === "hm4Consume") {
     console.log("hm4Consume");
+    $("#hm4Produce").css('color',"white");
+    $(this).css('color','black');
     $("#genBalance").html("hm4C");
+    $("#hm4Balance").html("C");
   } else if ($(this).val() === "hm4Produce") {
     console.log("hm4Produce");
+    $("#hm4Consume").css('color',"white");
+    $(this).css('color','black');
     $("#genBalance").html("hm4P");
+    $("#hm4Balance").html("P");
   }
 });
 
