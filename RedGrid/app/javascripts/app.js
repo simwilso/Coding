@@ -1,13 +1,49 @@
 $(document).ready(function redgridve() {
 
+// Import libraries we need.
+ //import { default as Web3 } from 'web3';
+ //import { default as contract } from 'truffle-contract';
+
 /*when user selects from dropdown menu this will update the code so that the settings interact
 with the relevant blockchain testnet they have selected.  for example if the user selects Ethereum
 the code will ensure that balances/functions etc are all ethereum relevant */
 
 $("select").change(function(){
+
+//user has selected ethereum
   if ($(this).val() === "ethereum") {
     console.log("ethereum");
     $("#genBalance").html("eth");
+
+
+    /* ethereum web3 items */
+    if (typeof web3 !== 'undefined') {
+      web3 = new Web3(web3.currentProvider);
+    } else {
+      web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+    }
+
+
+    /* need to specify the default Eth account to use. */
+
+    web3.eth.defaultAccount = web3.eth.accounts[0];
+
+    /* need to inject interface to our contract via the abi */
+
+    var redGridVEContract = web3.eth.contract([]);
+
+    /* define the contract address */
+
+    var redGridVE = redGridVEContract.at(0x8609a0806279c94bcc5432e36b57281b3d524b9b);
+    console.log(redGridVE);
+
+
+
+
+
+
+
+
   } else if ($(this).val() === "bitcoin") {
     console.log("bitcoin");
     $("#genBalance").html("btc");
