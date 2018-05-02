@@ -1,22 +1,85 @@
-// Import the page's CSS. Webpack will know what to do with it.
-import "../app/stylesheets/app.css";
+$(document).ready(function redgridve() {
+
+/*when user selects from dropdown menu this will query the relevant
+blockchain to interact with. */
+
+$("select").change(function(){
+  if ($(this).val() === "ethereum") {
+    console.log("ethereum");
+    $("#genBalance").html("eth");
+  } else if ($(this).val() === "bitcoin") {
+    console.log("bitcoin");
+    $("#genBalance").html("btc");
+  } else if ($(this).val() === "nem") {
+    console.log("nem");
+    $("#genBalance").html("nem");
+  } else if ($(this).val() === "stellar") {
+    console.log("stellar");
+    $("#genBalance").html("stellar");
+  } else if ($(this).val() === "cosmos") {
+    console.log("cosmos");
+    $("#genBalance").html("cosmos");
+  } else if ($(this).val() === "hashgraph") {
+    console.log("hashgraph");
+    $("#genBalance").html("hashgraph");
+  } else if ($(this).val() === "kadena") {
+    console.log("kadena");
+    $("#genBalance").html("kadena");
+  }
+});
+
+/* when the user clicks the consume or produce button next to the hm
+this will start flagging transactions with the selected blockchain */
+
+$("button").click(function capture() {
+
+  if ($(this).val() === "hm1Consume") {
+    console.log("hm1Consume");
+    $("#genBalance").html("hm1C");
+  } else if ($(this).val() === "hm1Produce") {
+    console.log("hm1Produce");
+    $("#genBalance").html("hm1P");
+  } else if ($(this).val() === "hm2Consume") {
+    console.log("hm2Consume");
+    $("#genBalance").html("hm2C");
+  } else if ($(this).val() === "hm2Produce") {
+    console.log("hm2Produce");
+    $("#genBalance").html("hm2P");
+  } else if ($(this).val() === "hm3Consume") {
+    console.log("hm3Consume");
+    $("#genBalance").html("hm3C");
+  } else if ($(this).val() === "hm3Produce") {
+    console.log("hm3Produce");
+    $("#genBalance").html("hm3P");
+  } else if ($(this).val() === "hm4Consume") {
+    console.log("hm4Consume");
+    $("#genBalance").html("hm4C");
+  } else if ($(this).val() === "hm4Produce") {
+    console.log("hm4Produce");
+    $("#genBalance").html("hm4P");
+  }
+});
+
+});
+
 
 // Import libraries we need.
-import { default as Web3} from 'web3';
-import { default as contract } from 'truffle-contract'
+ //import { default as Web3} from 'web3';
+ //import { default as contract } from 'truffle-contract';
 
 // Import our contract artifacts and turn them into usable abstractions.
-import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
+ //import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
 
 // MetaCoin is our usable abstraction, which we'll use through the code below.
-var MetaCoin = contract(metacoin_artifacts);
+ //var MetaCoin = contract(metacoin_artifacts);
 
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
 // For application bootstrapping, check out window.addEventListener below.
-var accounts;
-var account;
+ //var accounts;
+ //var account;
 
+/*
 window.App = {
   start: function() {
     var self = this;
@@ -100,3 +163,4 @@ window.addEventListener('load', function() {
 
   App.start();
 });
+*/

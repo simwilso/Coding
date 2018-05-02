@@ -1,81 +1,96 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
     <title>Demo for Village Energy - Ethereum</title>
-    <!-- CSS Files -->
+
+<!-- CSS Files -->
             <link rel="stylesheet" href="./stylesheets/app.css">
             <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
             <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'">
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- JS Files -->
+
+<!-- JS Files -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <script src="./javascripts/app.js"></script>
-  </head>
+
+</head>
 
 <body>
 
 <!-- html page -->
+
+
 <div class= "container-fluid">
      <div class="row">
+
 <!-- heading title -->
+
        <div class="col-md-12 text-center">
          <h1 class="h1">Demo for VE</h1>
        <hr>
        </div>
      </div>
+
+<!-- new row for dropdown list where user will select the testnet they interact with -->
+
      <div class="row">
        <div class="col-md-12 text-center">
          <select>
-           <option value="ethereum">Ethereum</option>
-           <option value="bitcoin">Bitcoin</option>
-           <option value="nem">NEM</option>
-           <option value="stellar">Stellar</option>
-           <option value="cosmos">Cosmos</option>
-           <option value="hashgraph">HashGraph</option>
+           <option value="notSelected" id="notSelected">Select Value</option>
+           <option value="ethereum" id="ethereum">Ethereum</option>
+           <option value="bitcoin" id="bitcoin">Bitcoin</option>
+           <option value="nem" id="nem">NEM</option>
+           <option value="stellar" id="stellar">Stellar</option>
+           <option value="cosmos" id="cosmos">Cosmos</option>
+           <option value="hashgraph" id="hashgraph">HashGraph</option>
+           <option value="kadena" id="kadena">Kadena</option>
          </select>
        <hr>
        </div>
      </div>
 
-<!-- first row including home 1 and 2 -->
+<!-- first row including home 1 and 2 user can view balance and select whether they are consuming or producing power -->
+<!-- each home will produce or consume a set amount in the program.. we can update it so they can specify values in a later iteration -->
+
 
 <div class="row">
   <div class="col-md-4 grid-container">
-    <div class="grid-item"><a value="consume" id="hm1Consume"><button class="btn btn-danger">Consume</button></a></div>
-    <div class="grid-item"><a value="produce" id="hm1Produce"><button class="btn btn-success">Produce</button></a></div>
+    <div class="grid-item"><button class="btn btn-danger" value="hm1Consume" id="hm1Consume">Consume</button></div>
+    <div class="grid-item"><button class="btn btn-success" value="hm1Produce" id="hm1Produce">Produce</button></div>
     <div class="grid-item"><a value="0" id="hm1Balance">0</a></div>
   </div>
     <div class="col-md-4">
     </div>
     <div class="col-md-4 grid-container">
      <div class="grid-item"><a value="0" id="hm2Balance">0</a></div>
-     <div class="grid-item"><a value="produce" id="hm2Produce"><button class="btn btn-success">Produce</button></a></div>
-     <div class="grid-item"><a value="consume" id="hm2Consume"><button class="btn btn-danger">Consume</button></a></div>
+     <div class="grid-item"><button class="btn btn-success" value="hm2Produce" id="hm2Produce">Produce</button></div>
+     <div class="grid-item"><button class="btn btn-danger" value="hm2Consume" id="hm2Consume">Consume</button></div>
     </div>
 </div>
 
-<!-- second row including home 3 and 4 -->
+<!-- second row including home 3 and 4 same rules as above.. view balance consume or produce buttons-->
 
 <div class="row">
    <div class="col-md-4 grid-container">
-     <div class="grid-item"><a value="consume" id="hm3Consume"><button class="btn btn-danger">Consume</button></a></div>
-     <div class="grid-item"><a value="produce" id="hm3Produce"><button class="btn btn-success">Produce</button></a></div>
+     <div class="grid-item"><button class="btn btn-danger" value="hm3Consume" id="hm3Consume">Consume</button></div>
+     <div class="grid-item"><button class="btn btn-success" value="hm3Produce" id="hm3Produce">Produce</button></div>
      <div class="grid-item"><a value="0" id="hm3Balance">0</a></div>
    </div>
    <div class="col-md-4">
    </div>
    <div class="col-md-4 grid-container">
      <div class="grid-item"><a value="0" id="hm4Balance">0</a></div>
-     <div class="grid-item"><a value="produce" id="hm4Produce"><button class="btn btn-success">Produce</button></a></div>
-     <div class="grid-item"><a value="consume" id="hm4Consume"><button class="btn btn-danger">Consume</button></a></div>
+     <div class="grid-item"><button class="btn btn-success" value="hm4Produce" id="hm4Produce">Produce</button></div>
+     <div class="grid-item"><button class="btn btn-danger" value="hm4Consume" id="hm4Consume">Consume</button></div>
    </div>
 </div>
 
 <hr>
 
-<!-- final row that shows the generator -->
+<!-- final row that shows a generator/reservoir for pwr.. which might be a central backup system -->
 
      <div class="row h2 text-center">Generator</div>
      <div class="row">
