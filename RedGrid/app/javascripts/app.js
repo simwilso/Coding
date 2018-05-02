@@ -1,7 +1,8 @@
 $(document).ready(function redgridve() {
 
-/*when user selects from dropdown menu this will query the relevant
-blockchain to interact with. */
+/*when user selects from dropdown menu this will update the code so that the settings interact
+with the relevant blockchain testnet they have selected.  for example if the user selects Ethereum
+the code will ensure that balances/functions etc are all ethereum relevant */
 
 $("select").change(function(){
   if ($(this).val() === "ethereum") {
@@ -28,8 +29,8 @@ $("select").change(function(){
   }
 });
 
-/* when the user clicks the consume or produce button next to the hm
-this will start flagging transactions with the selected blockchain */
+/* once the user has selected their blockchain when they click the consume or produce button
+next to the hm transactions with the selected blockchain will be created */
 
 $("button").click(function capture() {
 
