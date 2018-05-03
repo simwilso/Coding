@@ -1,6 +1,7 @@
 $(document).ready(function redgridve() {
 
 // Import libraries we need.
+ import "../stylesheets/app1.css";
  import { default as Web3 } from 'web3';
  import { default as contract } from 'truffle-contract';
 
