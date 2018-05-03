@@ -37,11 +37,26 @@ $(document).ready(function redgridve() {
 
       /* need to inject interface to our contract via the abi */
 
-      var redGridVEContract = web3.eth.contract([]);
+      var redGridVEContract = web3.eth.contract([
+        {
+          "constant": false,
+          "inputs": [],
+          "name": "GetString",
+          "outputs": [
+            {
+              "name": "",
+              "type": "string"
+            }
+          ],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ]);
 
       /* define the contract address */
 
-      var redGridVE = redGridVEContract.at(0xadb9f21891f24bf53d4e3d82a62caaefecfa251a);
+      var redGridVE = redGridVEContract.at('0x7136d5f3ffd0c305145558b7e0a1513a4fcef056');
       console.log(redGridVE);
 
 
