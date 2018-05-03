@@ -12,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "npm": "^6.0.0"
+    "npm": "^6.0.0",
+    "openzeppelin-solidity": "1.9.0",
+    "zeppelin-solidity": "1.9.0"
   }
 }
