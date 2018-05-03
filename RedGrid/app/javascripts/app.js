@@ -1,8 +1,8 @@
 $(document).ready(function redgridve() {
 
 // Import libraries we need.
- //import { default as Web3 } from 'web3';
- //import { default as contract } from 'truffle-contract';
+ import { default as Web3 } from 'web3';
+ import { default as contract } from 'truffle-contract';
 
 /*when user selects from dropdown menu this will update the code so that the settings interact
 with the relevant blockchain testnet they have selected.  for example if the user selects Ethereum
@@ -34,7 +34,7 @@ $("select").change(function(){
 
     /* define the contract address */
 
-    var redGridVE = redGridVEContract.at(0x8609a0806279c94bcc5432e36b57281b3d524b9b);
+    var redGridVE = redGridVEContract.at(0xadb9f21891f24bf53d4e3d82a62caaefecfa251a);
     console.log(redGridVE);
 
 
