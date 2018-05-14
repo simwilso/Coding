@@ -2,9 +2,15 @@ pragma solidity ^0.4.18;
 
 contract redGridVEContract {
 
-// setup array for each home in list
-    uint[4] public HomeArray = [100, 100, 100, 100000];
+// setup struct for each home in list
 
+    struct UserDetails {
+      uint id;
+      uint pwrUsage;
+      uint telcoUsage;
+      uint waterUsage;
+      uint xtlBalance;
+    }
 
 //central bank balance
     uint public pwrGenBalance = 10000;
@@ -12,33 +18,37 @@ contract redGridVEContract {
     uint public waterGenBalance = 10000;
 
 // counter for index
+    uint public index;
 
+//mapping of the sender to the struct so only they can access
 
-//mapping of the sender to the array so only they can access
-    mapping (address => uint[4]) homeOwnerDetails;
+    mapping (address => UserDetails) userInfo;
+
+//function to set initial values of struct
+function setValues() {
+  userInfo[msg.sender].pwrUsage = 100;
+  userInfo[msg.sender].telcoUsage = 100;
+  userInfo[msg.sender].waterUsage = 100;
+}
+
 
 //functions for consuming or producing pwr telco water
-
 //power dashboard functions
-
-/*
-when a home presses the consume button their existing pwr balance will be reduced -5 per block time
+/*when a home presses the consume button their existing pwr balance will be reduced -5 per block time
 figure will reduce till it reaches 0 at which point it will begin 'borrowing' from the Gen
 only the message sender can review and initiate these actions
-
 when a home presses the produce button their existing pwr balance will increase +5 per block time
 figure will increase without limit
-only the message sender can review and initiate these actions
- */
+only the message sender can review and initiate these actions */
 
 function pwrConsume() returns (uint) {
-  HomeArray[0] = HomeArray[0] - 5;
-  return HomeArray[0];
+  userInfo[msg.sender].pwrUsage = userInfo[msg.sender].pwrUsage - 5;
+  return userInfo[msg.sender].pwrUsage;
 }
 
 function pwrProduce() returns (uint) {
-  HomeArray[0] = HomeArray[0] + 5;
-  return HomeArray[0];
+  userInfo[msg.sender].pwrUsage = userInfo[msg.sender].pwrUsage + 5;
+  return userInfo[msg.sender].pwrUsage;
 }
 
 //Telco dashboard functions
@@ -63,8 +73,9 @@ function waterProduce() returns (uint) {}
 balance for each of the users.  this balance is determined from
 the users holdings on the blockchain of all the 'sub-tokens' above */
 
-function homeTot() returns (uint, uint, uint, uint) {
- return (HomeArray[0], HomeArray[1], HomeArray[2], HomeArray[3]);
+function homeTot() returns (uint) {
+  userInfo[msg.sender].xtlBalance = userInfo[msg.sender].pwrUsage * userInfo[msg.sender].telcoUsage * userInfo[msg.sender].waterUsage;
+  return (userInfo[msg.sender].xtlBalance);
 }
 
 //events
