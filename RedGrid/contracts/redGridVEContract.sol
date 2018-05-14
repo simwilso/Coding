@@ -2,69 +2,43 @@ pragma solidity ^0.4.18;
 
 contract redGridVEContract {
 
-//power balance
-    uint public pwr1Balance = 100;
-    uint public pwr2Balance = 100;
-    uint public pwr3Balance = 100;
-    uint public pwr4Balance = 100;
+// setup array for each home in list
+    uint[4] public HomeArray = [100, 100, 100, 100000];
+
+
+//central bank balance
     uint public pwrGenBalance = 10000;
-//telco balance
-    uint public telco1Balance = 100;
-    uint public telco2Balance = 100;
-    uint public telco3Balance = 100;
-    uint public telco4Balance = 100;
-//water balance
-    uint public water1Balance = 100;
-    uint public water2Balance = 100;
-    uint public water3Balance = 100;
-    uint public water4Balance = 100;
-//total balance
-    uint public tot1Balance = pwr1Balance * telco1Balance * water1Balance;
-    uint public tot2Balance = pwr2Balance * telco2Balance * water2Balance;
-    uint public tot3Balance = pwr3Balance * telco3Balance * water3Balance;
-    uint public tot4Balance = pwr4Balance * telco4Balance * water4Balance;
+    uint public telcoGenBalance = 10000;
+    uint public waterGenBalance = 10000;
+
+// counter for index
+
+
+//mapping of the sender to the array so only they can access
+    mapping (address => uint[4]) homeOwnerDetails;
+
+//functions for consuming or producing pwr telco water
 
 //power dashboard functions
 
-/* includes functions for each of four homes to define if it is
-consuming or producing power.. also includes a function for the
-local generator */
+/*
+when a home presses the consume button their existing pwr balance will be reduced -5 per block time
+figure will reduce till it reaches 0 at which point it will begin 'borrowing' from the Gen
+only the message sender can review and initiate these actions
 
-function pwr1Consume() returns (uint) {
-    pwr1Balance--;
-    return pwr1Balance;
-}
+when a home presses the produce button their existing pwr balance will increase +5 per block time
+figure will increase without limit
+only the message sender can review and initiate these actions
+ */
 
-function pwr1Produce() returns (uint) {
-    pwr1Balance++;
-    return pwr1Balance;
-}
-function pwr2Consume() returns (uint) {
-    pwr2Balance--;
-    return pwr2Balance;
+function pwrConsume() returns (uint) {
+  HomeArray[0] = HomeArray[0] - 5;
+  return HomeArray[0];
 }
 
-function pwr2Produce() returns (uint) {
-    pwr2Balance++;
-    return pwr2Balance;
-}
-function pwr3Consume() returns (uint) {
-    pwr3Balance--;
-    return pwr3Balance;
-}
-
-function pwr3Produce() returns (uint) {
-    pwr3Balance++;
-    return pwr3Balance;
-}
-function pwr4Consume() returns (uint) {
-    pwr4Balance--;
-    return pwr4Balance;
-}
-
-function pwr4Produce() returns (uint) {
-    pwr4Balance++;
-    return pwr4Balance;
+function pwrProduce() returns (uint) {
+  HomeArray[0] = HomeArray[0] + 5;
+  return HomeArray[0];
 }
 
 //Telco dashboard functions
@@ -72,74 +46,31 @@ function pwr4Produce() returns (uint) {
 /* includes functions for each of four users to define if they are
 consuming or producing credits. */
 
-function telco1Consume() returns (uint) {
-
-}
-function telco1Produce() returns (uint) {
-
-}
-function telco2Consume() returns (uint) {
-
-}
-function telco2Produce() returns (uint) {
-
-}
-function telco3Consume() returns (uint) {
-
-}
-function telco3Produce() returns (uint) {
-
-}
-function telco4Consume() returns (uint) {
-
-}
-function telco4Produce() returns (uint) {
-
-}
+function telcoConsume() returns (uint) {}
+function telcoProduce() returns (uint) {}
 
 //Water dashboard functions
 
 /* includes functions for each of four homes to define if they are
 consuming or producing water. */
 
-function water1Consume() returns (uint) {
+function waterConsume() returns (uint) {}
+function waterProduce() returns (uint) {}
 
-}
-function water1Produce() returns (uint) {
-
-}
-function water2Consume() returns (uint) {
-
-}
-function water2Produce() returns (uint) {
-
-}
-function water3Consume() returns (uint) {
-
-}
-function water3Produce() returns (uint) {
-
-}
-function water4Consume() returns (uint) {
-
-}
-function water4Produce() returns (uint) {
-
-}
-
-//define the xtl token and functions
+//functions for xtl token
 
 /* this section includes the functions that determine current XTL
 balance for each of the users.  this balance is determined from
 the users holdings on the blockchain of all the 'sub-tokens' above */
 
-function user1Tot(uint pwr1Balance, uint telco1Balance, uint water1Balance) returns (uint) {
+function homeTot() returns (uint, uint, uint, uint) {
+ return (HomeArray[0], HomeArray[1], HomeArray[2], HomeArray[3]);
 }
-function user2Tot(uint pwr2Balance, uint telco2Balance, uint water2Balance) returns (uint) {
-}
-function user3Tot(uint pwr3Balance, uint telco3Balance, uint water3Balance) returns (uint) {
-}
-function user4Tot(uint pwr4Balance, uint telco4Balance, uint water4Balance) returns (uint) {
-}
+
+//events
+
+function consumeValue() returns (uint) {}
+
+function produceValue() returns (uint) {}
 
 }
