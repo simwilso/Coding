@@ -56,7 +56,7 @@ contract EcommerceStore {
   return (product.id, product.name, product.category, product.imageLink, product.descLink, product.auctionStartTime, product.auctionEndTime, product.startPrice, product.status, product.condition);
  }
 
-//place a bid on an item
+//place a bid on an item ... returns a true for success.
 
  function bid(uint _productId, bytes32 _bid) payable public returns (bool) {
    Product storage product = stores[productIdInStore[_productId]][_productId];
@@ -74,7 +74,7 @@ contract EcommerceStore {
  function revealBid(uint _productId, string _amount, string _secret) public {
   Product storage product = stores[productIdInStore[_productId]][_productId];
   require (now > product.auctionEndTime);
-  bytes32 sealedBid = sha3(_amount, _secret);
+  bytes32 sealedBid = keccak256(_amount, _secret);
 
   Bid memory bidInfo = product.bids[msg.sender][sealedBid];
   require (bidInfo.bidder > 0);
