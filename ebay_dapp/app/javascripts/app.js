@@ -14,17 +14,23 @@ const ethUtil = require('ethereumjs-util');
 const ipfs = ipfsAPI({host: 'localhost', port: '5001', protocol: 'http'});
 
 window.App = {
-  // This if block should be with in the window.App = {} function
+/*  // This if block should be with in the window.App = {} function
  if($("#product-details").length > 0) {
   //This is product details page
   let productId = new URLSearchParams(window.location.search).get('id');
   renderProductDetails(productId);
- }
+} */
  start: function() {
   var self = this;
   EcommerceStore.setProvider(web3.currentProvider);
   renderStore();
+}
+};
 
+
+
+
+/*
   var reader;
 
     $("#product-image").change(function(event) {
@@ -162,6 +168,7 @@ function saveProductToBlockchain(params, imageId, descId) {
  });
 }
 
+*/
 
 function renderStore() {
  EcommerceStore.deployed().then(function(i) {
