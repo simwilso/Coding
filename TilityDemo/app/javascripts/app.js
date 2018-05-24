@@ -11,6 +11,20 @@ import metacoin_artifacts from '../../build/contracts/MetaCoin.json'
 // MetaCoin is our usable abstraction, which we'll use through the code below.
 var MetaCoin = contract(metacoin_artifacts);
 
+//my own adds are here
+
+window.App = {
+  start: function() {
+    var self = this;
+    MetaCoin.setProvider(web3.currentProvider);
+
+
+
+
+}
+}
+/*
+
 // The following code is simple to show off interacting with your contracts.
 // As your needs grow you will likely need to change its form and structure.
 // For application bootstrapping, check out window.addEventListener below.
@@ -23,6 +37,7 @@ window.App = {
 
     // Bootstrap the MetaCoin abstraction for Use.
     MetaCoin.setProvider(web3.currentProvider);
+
 
     // Get the initial account balance so it can be displayed.
     web3.eth.getAccounts(function(err, accs) {
@@ -41,8 +56,18 @@ window.App = {
 
       self.refreshBalance();
     });
+
+    function test() {
+        console.log("you did it!!!");
+      }
+    });
+
+
   },
 
+
+
+/*
   setStatus: function(message) {
     var status = document.getElementById("status");
     status.innerHTML = message;
@@ -56,7 +81,7 @@ window.App = {
       meta = instance;
       return meta.getBalance.call(account, {from: account});
     }).then(function(value) {
-      var balance_element = document.getElementById("balance");
+      var balance_element = document.getElementById("balanceKWH");
       balance_element.innerHTML = value.valueOf();
     }).catch(function(e) {
       console.log(e);
@@ -84,7 +109,12 @@ window.App = {
       self.setStatus("Error sending coin; see log.");
     });
   }
+
+
+
 };
+
+*/
 
 window.addEventListener('load', function() {
   // Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -97,7 +127,6 @@ window.addEventListener('load', function() {
     // fallback - use your fallback strategy (local node / hosted node + in-dapp id mgmt / fail)
     window.web3 = new Web3(new Web3.providers.HttpProvider("http://127.0.0.1:9545"));
   }
-
 
   App.start();
 });
