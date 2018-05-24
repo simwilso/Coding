@@ -15,9 +15,15 @@ var MetaCoin = contract(metacoin_artifacts);
 
 window.App = {
   start: function() {
-    var self = this;
+    //var self = this;
     MetaCoin.setProvider(web3.currentProvider);
 
+    console.log("Test");
+    $("select").change(function(){
+      if ($(this).val() === "home1") {
+        console.log("home1 is selected");
+      };
+    });
 
 
 
