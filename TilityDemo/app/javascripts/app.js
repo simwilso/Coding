@@ -18,11 +18,27 @@ window.App = {
     //var self = this;
     MetaCoin.setProvider(web3.currentProvider);
 
-    console.log("Test");
+    console.log("made it to the dropdown selection");
+
+// now the user must select from the dropdown
+
     $("select").change(function(){
       if ($(this).val() === "home1") {
         console.log("home1 is selected");
-      };
+
+        $("#balanceKWH").html("1000");
+        $("#balanceRRE").html("False");
+
+
+
+
+      }  else if ($(this).val() === "home2") {
+        console.log("home2 is selected");
+      }  else if ($(this).val() === "home3") {
+        console.log("home3 is selected");
+      }  else if ($(this).val() === "bus1") {
+        console.log("bus1 is selected");
+      }
     });
 
 
