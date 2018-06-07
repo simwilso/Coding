@@ -2,6 +2,12 @@ pragma solidity ^0.4.17;
 
 contract EthMicroGrid {
 
+  
+
+
+
+}
+/*
 // create the RRE Token
 
 //      This array with all RRE balances
@@ -42,10 +48,6 @@ contract EthMicroGrid {
           balanceOfKWH[_to] += _value;                           // Add the same to the recipient
       }
 
-//tester function
-      function tester() public returns (string) {
-        return "This works";
-      }
-
-
 }
+
+*/
