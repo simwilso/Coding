@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>SOL Share FE Demo Solidarity Token Page Main</title>
+
+<!-- CSS Files -->
+            <link rel="stylesheet" href="main.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+            <link href="https://use.fontawesome.com/releases/v5.0.4/css/all.css" rel="stylesheet">
+            <link href='https://fonts.googleapis.com/css?family=Bahiana' rel='stylesheet'">
+
+<!-- JS Files -->
+                    <script
+                        src="https://code.jquery.com/jquery-3.3.1.min.js"
+                        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+                        crossorigin="anonymous">
+                    </script>
+                    <script src="main.js"></script>
+
+  </head>
+  <body>
+
+<!-- HTML Page Contents -->
+
+  <div class="container">
+
+<!-- heading items for the SOlidarity Token page -->
+
+    <div class="col-md-12 row">
+        <img src="Logo_ME_SOLshare_Ltd.png" alt="SOLShare" style="width:400px;height:100px;">
+    </div>
+    <hr>
+
+    <div class="col-md-12 row">
+      <div class="col-md-4">
+        <h2><font color="white">Dr Sebastian Groh</font></h2>
+        <br>
+        <img src="sebastian.png" alt="AccountHolder" style="width:150px;height:150px;">
+      </div>
+      <div class="col-md-4 foreground">
+        <table style="width:100%" class="foreground">
+          <tr>
+            <th>BALANCE</th>
+            <th>Active Donations</th>
+          </tr>
+          <tr>
+            <td id="USER_BALANCE"></td>
+            <td id="ACTIVE_DONATIONS"></td>
+          </td>
+        </table>
+      </div>
+      <div class="col-md-4 foreground">
+        <button>MY ACCOUNT HISTORY</button>
+      </div>
+    </div>
+
+    <hr>
+
+    <div>
+
+<table style="width:100%" class="foreground">
+  <tr>
+    <th>Recipient</th>
+    <th>Description</th>
+    <th>Amount Required</th>
+    <th>Donation Amount</th>
+    <th></th>
+    <th>Balance & Daily Usage</th>
+    <th>Recipient Info<th>
+  </tr>
+  <tr>
+    <td>Bangladesh Primary</td>
+    <td>Local Primary School 50 pupils</td>
+    <td id="REQ_PS">123</td>
+    <td><form><input id="AMOUNT_PS" value="ENTER AMOUNT"></form></td>
+    <td><button id="DONATE_PS">DONATE</button></td>
+    <td id="BALANCE_PS">123</td>
+    <td><button><a href="http://www.mopme.gov.bd/" target="_blank"><img src="primary.jpg" alt="Bangladesh Primary" style="width:50px;height:50px;"</a></button>
+  </tr>
+  <tr>
+    <td>Dhaka Hospital & GP</td>
+    <td>Doctors Clinic and Hospital</td>
+    <td id="REQ_GP">123</td>
+    <td><form><input id="AMOUNT_GP" value="ENTER AMOUNT"></form></td>
+    <td><button id="DONATE_GP">DONATE</button></td>
+    <td id="BALANCE_GP">123</td>
+    <td><button><a href="http://dhakashishuhospital.org.bd/" target="_blank"><img src="hospital.jpg" alt="Bangladesh Hospital" style="width:50px;height:50px;"</a></button>
+  </tr>
+  <tr>
+    <td>Dhaka Grocery Store</td>
+    <td>Grocery store</td>
+    <td id="REQ_ST">123</td>
+    <td><form><input id="AMOUNT_ST" value="ENTER AMOUNT"></form></td>
+    <td><button id="DONATE_ST">DONATE</button></td>
+    <td id="BALANCE_ST">123</td>
+    <td><button><a href="http://sbazaar.com.bd/index.php" target="_blank"><img src="grocery.jpg" alt="Bangladesh Grocery" style="width:50px;height:50px;"</a></button>
+
+  </tr>
+  <tr>
+    <td>Khulna Football Club</td>
+    <td>Soccer Club</td>
+    <td id="REQ_FC">123</td>
+    <td><form><input id="AMOUNT_FC" value="ENTER AMOUNT"></form></td>
+    <td><button id="DONATE_FC">DONATE</button></td>
+    <td id="BALANCE_FC">123</td>
+    <td><button><a href="https://www.facebook.com/pages/Little-Star-Football-Club-Jhikargacha/758590817524811" target="_blank"><img src="football.jpg" alt="Bangladesh Football Club" style="width:50px;height:50px;"</a></button>
+  </tr>
+</table>
+
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </body>
+</html>

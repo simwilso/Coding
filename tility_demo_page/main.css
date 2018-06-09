@@ -1,0 +1,13 @@
+body {
+   background-image: url("background.png");
+   background-color: #cccccc;
+}
+
+.foreground {
+  background-color: gray;
+  color: white;
+}
+
+.bigtext {
+  font-size: 50;
+}
